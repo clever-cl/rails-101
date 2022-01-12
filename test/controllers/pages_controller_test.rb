@@ -14,4 +14,10 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       assert_select "li", Page.count
     end
   end
+
+  test "Should show a page content"  do
+    page = pages(:one)
+    get page_path(page)
+    assert_response :ok
+  end
 end
